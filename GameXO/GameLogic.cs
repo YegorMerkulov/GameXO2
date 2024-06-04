@@ -102,7 +102,7 @@ namespace GameXO
                 else countWin = 0;
 
             for (int i = 0; i < 9; i++)
-                if (tempField[i, col] == data)
+                if (tempField[i, 8 - i] == data)
                 {
                     countWin++;
                     if (countWin > 4)
@@ -111,7 +111,16 @@ namespace GameXO
                 else countWin = 0;
 
             for (int i = 0; i < 9; i++)
-                if (tempField[row, i] == data)
+                if (tempField[i, 4] == data)
+                {
+                    countWin++;
+                    if (countWin > 4)
+                        return true;
+                }
+                else countWin = 0;
+
+            for (int i = 0; i < 9; i++)
+                if (tempField[4, i] == data)
                 {
                     countWin++;
                     if (countWin > 4)
@@ -120,6 +129,12 @@ namespace GameXO
                 else countWin = 0;
 
             return false;
+        }
+
+        public int getDataMatrixOX(int row, int col)
+        {
+            int temp = matrixOX.getData(row, col);
+            return temp;
         }
 
     }

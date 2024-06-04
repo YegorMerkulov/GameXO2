@@ -11,22 +11,19 @@ namespace GameXO
     {
 
         private int[] data, row, col;
-        private int locationRow, locationCol;
 
         public MatrixOX()
         {
             data = null;
             row = null;
             col = null;
-            locationRow = 0;
-            locationCol = 0;
         }
 
         public void setPushMatrix(int value, int countEl, int countRow)
         {
-            this.data = push(data, value);
-            this.col = push(col, countEl + locationCol);
-            this.row = push(row, countRow + locationRow);
+            data = push(data, value);
+            col = push(col, countEl);
+            row = push(row, countRow);
 
             //MessageBox.Show(data[data.Length - 1].ToString() + col[col.Length - 1].ToString() + row[row.Length - 1].ToString());
         }
@@ -63,7 +60,6 @@ namespace GameXO
                 for (int i = 0; col.Length > i; i++)
             {
                 this.col[i]++;
-                if (locationCol != 0) locationCol--;
             }
         }
 
@@ -73,7 +69,6 @@ namespace GameXO
             for (int i = 0; col.Length > i; i++)
             {
                 this.col[i]--;
-                if (locationCol != 0) locationCol++;
             }
         }
 
@@ -83,7 +78,6 @@ namespace GameXO
                 for (int i = 0; row.Length > i; i++)
             {
                 this.row[i]++;
-                if (locationRow != 0) locationCol--;
             }
         }
 
@@ -93,7 +87,6 @@ namespace GameXO
                 for (int i = 0; row.Length > i; i++)
             {
                 this.row[i]--;
-                locationRow++;
             }
         }
 

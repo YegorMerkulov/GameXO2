@@ -59,6 +59,7 @@
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonNewGame = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
+            this.buttonOnOffBot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.field11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field13)).BeginInit();
@@ -433,7 +434,7 @@
             // buttonNewGame
             // 
             this.buttonNewGame.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonNewGame.Location = new System.Drawing.Point(79, 165);
+            this.buttonNewGame.Location = new System.Drawing.Point(83, 151);
             this.buttonNewGame.Name = "buttonNewGame";
             this.buttonNewGame.Size = new System.Drawing.Size(130, 38);
             this.buttonNewGame.TabIndex = 29;
@@ -444,7 +445,7 @@
             // buttonQuit
             // 
             this.buttonQuit.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonQuit.Location = new System.Drawing.Point(79, 209);
+            this.buttonQuit.Location = new System.Drawing.Point(83, 241);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(130, 38);
             this.buttonQuit.TabIndex = 30;
@@ -452,11 +453,23 @@
             this.buttonQuit.UseVisualStyleBackColor = false;
             this.buttonQuit.Click += new System.EventHandler(this.buttonQuit_Click);
             // 
+            // buttonOnOffBot
+            // 
+            this.buttonOnOffBot.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonOnOffBot.Location = new System.Drawing.Point(83, 197);
+            this.buttonOnOffBot.Name = "buttonOnOffBot";
+            this.buttonOnOffBot.Size = new System.Drawing.Size(130, 38);
+            this.buttonOnOffBot.TabIndex = 31;
+            this.buttonOnOffBot.Text = "Вкл/Выкл бота";
+            this.buttonOnOffBot.UseVisualStyleBackColor = false;
+            this.buttonOnOffBot.Click += new System.EventHandler(this.buttonOnOffBot_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonOnOffBot);
             this.Controls.Add(this.buttonQuit);
             this.Controls.Add(this.buttonNewGame);
             this.Controls.Add(this.buttonUp);
@@ -552,6 +565,7 @@
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonNewGame;
         private System.Windows.Forms.Button buttonQuit;
+        private System.Windows.Forms.Button buttonOnOffBot;
     }
 }
 

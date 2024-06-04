@@ -16,262 +16,195 @@ namespace GameXO
     {
 
         GameLogic gameLogic = new GameLogic();
+        NPS nps = new NPS();
+
         int[,] cell;
         bool crossOfZero = true;
+        bool playingBot = false;
+        int tempRow, tempCol;
 
         public Form1()
         {
             InitializeComponent();
             cell = new int[6,6];
+            tempRow = 0;
+            tempCol = 0;
         }
 
         private void field11_Click(object sender, EventArgs e)
         {
-            if (field11.Image == null)
-            {
-                field11.Image = getImage();
-                addCellInfo(1, 1, crossOfZero);
+            int row = 1;
+            int col = 1;
+            fieldClick(row, col);
 
-            }
         }
 
         private void field12_Click_1(object sender, EventArgs e)
         {
-            if (field12.Image == null)
-            {
-                field12.Image = getImage();
-                addCellInfo(1, 2, crossOfZero);
-
-            }
+            int row = 1;
+            int col = 2;
+            fieldClick(row, col);
         }
 
         private void field13_Click(object sender, EventArgs e)
         {
-            if (field13.Image == null)
-            {
-                field13.Image = getImage();
-                addCellInfo(1, 3, crossOfZero);
-
-            }
+            int row = 1;
+            int col = 3;
+            fieldClick(row, col);
         }
 
         private void field14_Click(object sender, EventArgs e)
         {
-            if (field14.Image == null)
-            {
-                field14.Image = getImage();
-                addCellInfo(1, 4, crossOfZero);
-
-            }
+            int row = 1;
+            int col = 4;
+            fieldClick(row, col);
         }
 
         private void field15_Click(object sender, EventArgs e)
         {
-            if (field15.Image == null)
-            {
-                field15.Image = getImage();
-                addCellInfo(1, 5, crossOfZero);
-
-            }
+            int row = 1;
+            int col = 5;
+            fieldClick(row, col);
         }
 
         private void field21_Click(object sender, EventArgs e)
         {
-            if (field21.Image == null)
-            {
-                field21.Image = getImage();
-                addCellInfo(2, 1, crossOfZero);
-
-            }
+            int row = 2;
+            int col = 1;
+            fieldClick(row, col);
         }
 
         private void field22_Click(object sender, EventArgs e)
         {
-            if (field22.Image == null)
-            {
-                field22.Image = getImage();
-                addCellInfo(2, 2, crossOfZero);
-
-            }
+            int row = 2;
+            int col = 2;
+            fieldClick(row, col);
         }
 
         private void field23_Click(object sender, EventArgs e)
         {
-            if (field23.Image == null)
-            {
-                field23.Image = getImage();
-                addCellInfo(2, 3, crossOfZero);
-
-            }
+            int row = 2;
+            int col = 3;
+            fieldClick(row, col);
         }
 
         private void field24_Click(object sender, EventArgs e)
         {
-            if (field24.Image == null)
-            {
-                field24.Image = getImage();
-                addCellInfo(2, 4, crossOfZero);
-
-            }
+            int row = 2;
+            int col = 4;
+            fieldClick(row, col);
         }
 
         private void field25_Click(object sender, EventArgs e)
         {
-            if (field25.Image == null)
-            {
-                field25.Image = getImage();
-                addCellInfo(2, 5, crossOfZero);
-
-            }
+            int row = 2;
+            int col = 5;
+            fieldClick(row, col);
         }
 
         private void field31_Click(object sender, EventArgs e)
         {
-            if (field31.Image == null)
-            {
-                field31.Image = getImage();
-                addCellInfo(3, 1, crossOfZero);
-            }
+            int row = 3;
+            int col = 1;
+            fieldClick(row, col);
         }
 
         private void field32_Click(object sender, EventArgs e)
         {
-            if (field32.Image == null)
-            {
-                field32.Image = getImage();
-                addCellInfo(3, 2, crossOfZero);
-
-            }
+            int row = 3;
+            int col = 2;
+            fieldClick(row, col);
         }
 
         private void field33_Click(object sender, EventArgs e)
         {
-            if (field33.Image == null)
-            {
-                field33.Image = getImage();
-                addCellInfo(3, 3, crossOfZero);
-
-            }
+            int row = 3;
+            int col = 3;
+            fieldClick(row, col);
         }
 
         private void field34_Click(object sender, EventArgs e)
         {
-            if (field34.Image == null)
-            {
-                field34.Image = getImage();
-                addCellInfo(3, 4, crossOfZero);
-
-            }
+            int row = 3;
+            int col = 4;
+            fieldClick(row, col);
         }
 
         private void field35_Click(object sender, EventArgs e)
         {
-            if (field35.Image == null)
-            {
-                field35.Image = getImage();
-                addCellInfo(3, 5, crossOfZero);
-
-            }
+            int row = 3;
+            int col = 5;
+            fieldClick(row, col);
         }
 
         private void field41_Click(object sender, EventArgs e)
         {
-            if (field41.Image == null)
-            {
-                field41.Image = getImage();
-                addCellInfo(4, 1, crossOfZero);
-
-            }
+            int row = 4;
+            int col = 1;
+            fieldClick(row, col);
         }
 
         private void field42_Click(object sender, EventArgs e)
         {
-            if (field42.Image == null)
-            {
-                field42.Image = getImage();
-                addCellInfo(4, 2, crossOfZero);
-
-            }
+            int row = 4;
+            int col = 2;
+            fieldClick(row, col);
         }
 
         private void field43_Click(object sender, EventArgs e)
         {
-            if (field43.Image == null)
-            {
-                field43.Image = getImage();
-                addCellInfo(4, 3, crossOfZero);
-
-            }
+            int row = 4;
+            int col = 3;
+            fieldClick(row, col);
         }
 
         private void field44_Click(object sender, EventArgs e)
         {
-            if (field44.Image == null)
-            {
-                field44.Image = getImage();
-                addCellInfo(4, 4, crossOfZero);
-
-            }
+            int row = 4;
+            int col = 4;
+            fieldClick(row, col);
         }
 
         private void field45_Click(object sender, EventArgs e)
         {
-            if (field45.Image == null)
-            {
-                field45.Image = getImage();
-                addCellInfo(4, 5, crossOfZero);
-
-            }
+            int row = 4;
+            int col = 5;
+            fieldClick(row, col);
         }
 
         private void field51_Click(object sender, EventArgs e)
         {
-            if (field51.Image == null)
-            {
-                field51.Image = getImage();
-                addCellInfo(5, 1, crossOfZero);
-
-            }
+            int row = 5;
+            int col = 1;
+            fieldClick(row, col);
         }
 
         private void field52_Click(object sender, EventArgs e)
         {
-            if (field52.Image == null)
-            {
-                field52.Image = getImage();
-                addCellInfo(5, 2, crossOfZero);
-
-            }
+            int row = 5;
+            int col = 2;
+            fieldClick(row, col);
         }
 
         private void field53_Click(object sender, EventArgs e)
         {
-            if (field53.Image == null)
-            {
-                field53.Image = getImage();
-                addCellInfo(5, 3, crossOfZero);
-
-            }
+            int row = 5;
+            int col = 3;
+            fieldClick(row, col);
         }
 
         private void field54_Click(object sender, EventArgs e)
         {
-            if (field54.Image == null)
-            {
-                field54.Image = getImage();
-                addCellInfo(5, 4, crossOfZero);
-
-            }
+            int row = 5;
+            int col = 4;
+            fieldClick(row, col);
         }
 
         private void field55_Click(object sender, EventArgs e)
         {
-            if (field55.Image == null)
-            {
-                field55.Image = getImage();
-                addCellInfo(5, 5, crossOfZero);
-
-            }
+            int row = 5;
+            int col = 5;
+            fieldClick(row, col);
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
@@ -306,27 +239,30 @@ namespace GameXO
 
         private void addCellInfo(int row, int col, bool crossOfZero)
         {
-            int number = 2;
-            if (crossOfZero) number = 1; 
-            cell[row, col] = number;
-            this.crossOfZero = !crossOfZero;
-            gameLogic.addDataMatrixOX(row, col, number);
-            if (gameLogic.checkWin(number, row, col))
+            if (gameLogic.getDataMatrixOX(row, col) == 0)
             {
-                string winner;
-                if (number == 1)
+                int number = 2;
+                if (crossOfZero) number = 1;
+                this.crossOfZero = !crossOfZero;
+                gameLogic.addDataMatrixOX(row, col, number);
+                loadInfo();
+                if (gameLogic.checkWin(number, row, col))
                 {
-                    winner = "крестики";
-                }
-                else
-                {
-                    winner = "нолики";
-                }
-                MessageBox.Show("Выйграли " + winner + "!");
-                newGame();
+                    string winner;
+                    if (number == 1)
+                    {
+                        winner = "крестики";
+                    }
+                    else
+                    {
+                        winner = "нолики";
+                    }
+                    MessageBox.Show("Выйграли " + winner + "!");
+                    newGame();
+
+                }        
 
             }
-
         }
 
         private Image getImage()
@@ -394,6 +330,35 @@ namespace GameXO
             gameLogic.matrixOXRemoveData();
             loadInfo();
             crossOfZero = true;
+            playingBot = false;
+        }
+
+        private void buttonOnOffBot_Click(object sender, EventArgs e)
+        {
+            if (!playingBot) playingBot = true;
+            else playingBot = false;
+            if (!crossOfZero)
+            {
+                int[] tempMass = nps.stepSelection(tempRow, tempCol, gameLogic);
+                gameLogic = nps.getGameLogic();
+                addCellInfo(tempMass[0], tempMass[1], crossOfZero);
+                loadInfo();
+            }
+        }
+
+        private void fieldClick(int row, int col)
+        {
+
+            addCellInfo(row, col, crossOfZero);
+            tempRow = row;
+            tempCol = col;
+            if (playingBot)
+            {
+                int[] tempMass = nps.stepSelection(row, col, gameLogic);
+                gameLogic = nps.getGameLogic();
+                addCellInfo(tempMass[0], tempMass[1], crossOfZero);
+                loadInfo();
+            }
         }
     }
 }
