@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GameXO
 {
@@ -42,7 +43,7 @@ namespace GameXO
             for (int i = 0; i < 11; i++)
                 for (int j = 0; j < 11; j++)
                 {
-                    tempField[i, j] = gameLogic.getDataMatrixOX(row + i - 4, col + j - 4);
+                    tempField[i, j] = gameLogic.getDataMatrixOX(row + i - 5, col + j - 5);
                 }
             return tempField;
         }
@@ -58,28 +59,31 @@ namespace GameXO
                 {
                     if (tempField[i, j] != 1 && tempField[i, j] != 2)
                     {
-                        tempField2 = loadField(row + i - 4, col + j - 4);
+                        tempField2 = loadField(row + i - 5, col + j - 5);
 
                         lines = getLines();
 
                         for (int k = 0; k < 4; k++)
                         {
+                            if (lines[3] == "00000011100")
+                                MessageBox.Show(i + " " + j);
                             string line = lines[k];
+
                             if (openFourX(line))
+                                score += 1000000;
+                            else if (openTreeX(line))
                                 score += 10000;
                             else if (closeFourX(line))
-                                score += 1000;
-                            else if (openTreeX(line))
-                                score += 100;
+                                score += 10;
 
                             if (closeFourO(line))
-                                score += 5000;
+                                score += 100000;
                             else if (openFourO(line))
-                                score += 2500;
-                            else if (closeFlourOX(line))
                                 score += 2000;
-                            else if (openTreeO(line))
+                            else if (closeFlourOX(line))
                                 score += 1000;
+                            else if (openTreeO(line))
+                                score += 100;
                         }
 
                         if (maxScore < score)
@@ -87,7 +91,8 @@ namespace GameXO
                             if (tempField[i, j] == 0)
                             {
                                 maxScore = score;
-                                step = new int[] { row + i - 4, col + j - 4 };
+                                step = new int[] { row + i - 5, col + j - 5 };
+                                MessageBox.Show(step[0] + " " + step[1] + "11111111111111111111111111111111");
                             }
 
                         }
@@ -220,26 +225,22 @@ namespace GameXO
         {
             int count = 0;
             int count2 = 0;
-            bool flag = true;
-                for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 10; i++)
+            {
+                if (i != 5)
                 {
                     if (line[i] == '1')
                     {
                         count++;
-                    count2++;
+                        count2++;
                         if (count == 3)
                             if (line[i - 3] == '0' && line[i + 1] == '0')
                                 return true;
                     }
-                else if (flag)
-                {
-                    count2 = 0;
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    count = count2;
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             return false;
@@ -249,26 +250,22 @@ namespace GameXO
         {
             int count = 0;
             int count2 = 0;
-            bool flag = true;
             for (int i = 2; i < 9; i++)
             {
-                if (line[i] == '1')
+                if (i != 5)
                 {
-                    count++;
-                    count2++;
-                    if (count == 3)
-                        if (line[i - 3] == '2' || line[i + 1] == '2')
-                            return true;
-                }
-                else if (flag)
-                {
-                    count2 = 0;
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    count = count2;
+                    if (line[i] == '1')
+                    {
+                        count++;
+                        count2++;
+                        if (count == 3)
+                            if (line[i - 3] == '2' || line[i + 1] == '2')
+                                return true;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             return false;
@@ -312,7 +309,7 @@ namespace GameXO
             string[] tempLines = null;
             string line = null;
             for (int i = 0; i < 11; i++)
-                line += tempField2[i, 4];
+                line += tempField2[i, 5];
             tempLines = push(tempLines, line);
             line = null;
             for (int i = 0; i < 11; i++)
@@ -320,7 +317,7 @@ namespace GameXO
             tempLines = push(tempLines, line);
             line = null;
             for (int i = 0; i < 11; i++)
-                line += tempField2[4, i];
+                line += tempField2[5, i];
             tempLines = push(tempLines, line);
             line = null;
             for (int i = 0; i < 11; i++)
