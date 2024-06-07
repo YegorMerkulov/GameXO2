@@ -65,8 +65,8 @@ namespace GameXO
 
                         for (int k = 0; k < 4; k++)
                         {
-                            if (lines[3] == "00000011100")
-                                MessageBox.Show(i + " " + j);
+                            /*if (lines[3] == "00000011100")
+                                MessageBox.Show(i + " " + j);*/
                             string line = lines[k];
 
                             if (openFourX(line))
@@ -92,8 +92,8 @@ namespace GameXO
                             {
                                 maxScore = score;
                                 step = new int[] { row + i - 5, col + j - 5 };
-                                MessageBox.Show(step[0] + " " + step[1] + "11111111111111111111111111111111");
-                            }
+/*                                MessageBox.Show(step[0] + " " + step[1] + "11111111111111111111111111111111");
+*/                            }
 
                         }
                         score = 0;
@@ -108,27 +108,22 @@ namespace GameXO
         bool openFourX(string line)
         {
             int count = 0;
-            int count2 = 0;
-            bool flag = true;
+
             for (int i = 1; i < 10; i++)
             {
-                if (line[i] == '2')
+                if (i != 5)
                 {
-                    count++;
-                    count2++;
-                    if (count == 4)
-                        if (line[i - 4] == '0' && line[i + 1] == '0')
-                            return true;
-                }
-                else if (flag)
-                {
-                    count2 = 0;
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    count = count2;
+                    if (line[i] == '2')
+                    {
+                        count++;
+                        if (count == 4)
+                            if (line[i - 4] == '0' && line[i + 1] == '0')
+                                return true;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             return false;
@@ -137,27 +132,23 @@ namespace GameXO
         bool closeFourX(string line)
         {
             int count = 0;
-            int count2 = 0;
-            bool flag = true;
+
             for (int i = 1; i < 10; i++)
             {
-                if (line[i] == '2')
+                if (i != 5)
                 {
-                    count++;
-                    count2++;
-                    if (count == 4)
-                        if (line[i - 4] == '1' || line[i + 1] == '1')
-                            return true;
-                }
-                else if (flag)
-                {
-                    count2 = 0;
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    count = count2;
+                    if (line[i] == '2')
+                    {
+                        count++;
+
+                        if (count == 4)
+                            if (line[i - 4] == '1' || line[i + 1] == '1')
+                                return true;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             return false;
@@ -166,27 +157,21 @@ namespace GameXO
         bool openTreeX(string line)
         {
             int count = 0;
-            int count2 = 0;
-            bool flag = true;
             for (int i = 2; i < 9; i++)
             {
-                if (line[i] == '2')
+                if (i != 5)
                 {
-                    count++;
-                    count2++;
-                    if (count == 3)
-                        if (line[i - 3] == '0' && line[i + 1] == '0')
-                            return true;
-                }
-                else if (flag)
-                {
-                    count2 = 0;
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    count = count2;
+                    if (line[i] == '2')
+                    {
+                        count++;
+                        if (count == 3)
+                            if (line[i - 3] == '0' && line[i + 1] == '0')
+                                return true;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             return false;
@@ -195,27 +180,21 @@ namespace GameXO
         bool closeFourO(string line)
         {
             int count = 0;
-            int count2 = 0;
-            bool flag = true;
             for (int i = 1; i < 10; i++)
             {
-                if (line[i] == '1')
+                if (i != 5)
                 {
-                    count++;
-                    count2++;
-                    if (count == 4)
-                        if (line[i - 4] == '2' || line[i + 1] == '2')
-                            return true;
-                }
-                else if (flag)
-                {
-                    count2 = 0;
-                    flag = false;
-                }
-                else
-                {
-                    flag = true;
-                    count = count2;
+                    if (line[i] == '1')
+                    {
+                        count++;
+                        if (count == 4)
+                            if (line[i - 4] == '2' || line[i + 1] == '2')
+                                return true;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             return false;
@@ -224,15 +203,13 @@ namespace GameXO
         bool openFourO(string line)
         {
             int count = 0;
-            int count2 = 0;
-            for (int i = 1; i < 10; i++)
+            for (int i = 2; i < 9; i++)
             {
                 if (i != 5)
                 {
                     if (line[i] == '1')
                     {
                         count++;
-                        count2++;
                         if (count == 3)
                             if (line[i - 3] == '0' && line[i + 1] == '0')
                                 return true;
@@ -249,7 +226,6 @@ namespace GameXO
         bool closeFlourOX(string line)
         {
             int count = 0;
-            int count2 = 0;
             for (int i = 2; i < 9; i++)
             {
                 if (i != 5)
@@ -257,7 +233,6 @@ namespace GameXO
                     if (line[i] == '1')
                     {
                         count++;
-                        count2++;
                         if (count == 3)
                             if (line[i - 3] == '2' || line[i + 1] == '2')
                                 return true;
@@ -274,29 +249,23 @@ namespace GameXO
         bool openTreeO(string line)
         {
             int count = 0;
-            int count2 = 0;
-            bool flag = true;
             if (line[4] == '1' || line[6] == '1')
             {
                 for (int i = 2; i < 8; i++)
                 {
-
-                    if (line[i] == '1')
+                    if (i != 5)
                     {
-                        count++;
-                        if (count == 2)
-                            if (line[i - 2] == '0' && line[i + 1] == '0')
-                                return true;
-                    }
-                    else if (flag)
-                    {
-                        count2 = 0;
-                        flag = false;
-                    }
-                    else
-                    {
-                        flag = true;
-                        count = count2;
+                        if (line[i] == '1')
+                        {
+                            count++;
+                            if (count == 2)
+                                if (line[i - 2] == '0' && line[i + 1] == '0')
+                                    return true;
+                        }
+                        else
+                        {
+                            count = 0;
+                        }
                     }
                 }
             }
